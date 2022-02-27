@@ -11,4 +11,5 @@ Repo to hold content for a nerf mounter RC Car
 - Linux
 - dkms
 - xpad driver
-- open CV
+- vlc
+- v4l
