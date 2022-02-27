@@ -11,7 +11,7 @@
 #include <fcntl.h>    // open, O_RDONLY
 #include <unistd.h>   // close, read
 
-#define DEBUG 1
+#define DEBUG 0
 char* device_string = "/dev/input/js0";
 int cmd_size = 0x8;
 
@@ -39,9 +39,13 @@ int cmd_size = 0x8;
 #define DD_BUTTON_ID 14
 
 #define INPUT_TYPE_ANALOG 2
-#define ANALOG_X_BYTE_L 5
-#define ANALOG_X_BYTE_U 4
+#define ANALOG_BYTE_1 4
+#define ANALOG_BYTE_2 5
+#define L_JOY_X 0 
+#define L_JOY_Y 1
 #define LT_ANALOG_ID 2
+#define R_JOY_X 3        
+#define R_JOY_Y 4
 #define RT_ANALOG_ID 5
 
 
@@ -135,15 +139,30 @@ int main()
         }
         else if(buff[INPUT_TYPE_BYTE] == INPUT_TYPE_ANALOG)
         {
-            unsigned short xval = buff[ANALOG_X_BYTE_L] + (buff[ANALOG_X_BYTE_U] << 8);
+            unsigned char xval_1 = buff[ANALOG_BYTE_1];
+            unsigned char xval_2 = buff[ANALOG_BYTE_2];
+            short xval = (((short)xval_2) << 8) + ((short) xval_1);
             switch(buff[BUTTON_ID_BYTE])
             {
                 case LT_ANALOG_ID:
-                    printf("LT event, x = %u\n", xval);
+                    printf("LT event, x = %d\n", xval);
                     break;
                 case RT_ANALOG_ID:
-                    printf("RT event, x = %u\n", xval);
+                    printf("RT event, x = %d\n", xval);
                     break;
+                case R_JOY_X:
+                    printf("R joy X event, x = %d\n", xval);
+                    break;
+                case R_JOY_Y:
+                    printf("R joy Y event, x = %d\n", xval);
+                    break;
+                case L_JOY_X:
+                    printf("L joy X event, x = %d\n", xval);
+                    break;
+                case L_JOY_Y:
+                    printf("L joy Y event, x = %d\n", xval);
+                    break;
+
             }
         }
         else
@@ -156,7 +175,7 @@ int main()
         //*********************************************************************
         #if DEBUG
         int i;
-        for(i = 0; i < cmd_size - 2; ++i)
+        for(i = 0; i < cmd_size; ++i)
         {
             printf("%u ", buff[i]);
         }
