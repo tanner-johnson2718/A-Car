@@ -3,7 +3,7 @@ Repo to hold content for a nerf mounter RC Car
 
 # Development Path
 - [X] Get XBOX controller working i.e. can detect controller input
-- [ ] Get vid cam input window
+- [X] Get vid cam input window
 - [ ] Talk directly between two wifi card, no router
 - Just need parts now ...
 
@@ -11,3 +11,4 @@ Repo to hold content for a nerf mounter RC Car
 - Linux
 - dkms
 - xpad driver
+- open CV
