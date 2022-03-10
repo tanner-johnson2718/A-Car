@@ -38,9 +38,10 @@ get the vehicle moving and operational and mount a nerf gun later.
     - dkms
     - xpad driver
     - vlc
+    - ffmpeg
 - Linux for beagle bone
     - v4l
-    - proper drivers
+    - ffmpeg
 
 # Hardware
 - x86 linux PC

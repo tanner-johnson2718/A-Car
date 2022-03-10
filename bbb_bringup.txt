@@ -1,0 +1,16 @@
+- Downloaded "AM3358 Debian 10.3 2020-04-06 4GB SD IoT" from 
+  https://beagleboard.org/latest-images
+- Flashed to micro sd, plugged into board, and booted image
+- Connected to WiFi end point named "BeagleBone-9947"
+- Password is BeagleBone
+- In browser go to hosted IDE at 192.168.8.1
+- This opens IDE / ssh session / debugger
+- Connected to internet on board by:
+- connmanctl
+- scan wifi
+- agent on
+- connect wifi_XXXXXXXXXX_XXXXXXXXXX_managed_wps
+- enter wifi Password
+- quit
+- Should now see interface on wlan0 for outside internet
+- update / upgrade
