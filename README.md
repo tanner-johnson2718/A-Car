@@ -7,19 +7,21 @@ connection status, etc. The vehicle itself will be standard cheep RC car
 "hacked" to be a controlled by a beaglebone blue. Initial goal it to simply
 get the vehicle moving and operational and mount a nerf gun later.
 
+... given the base OS has a lot if functionality need to rework tasking...
+
 
 # Control Tasks
 - [X] Get XBOX controller working i.e. can detect controller input
 - [X] Get vid cam input window
-- [ ] Talk directly between two wifi card, no router, maybe use BLE?
+- [X] Talk directly between two wifi card, no router, maybe use BLE?
 - [ ] Send Video and Controller Signal over WiFi direct (or BLE)
 - [ ] UI for displaying connection and car status and signals
 
 # MCU Task
-- [ ] Get beaglebone blue minimally running linux
-- [ ] Custom Linux to get right drivers?
-- [ ] Get IMU gyros and other on board sensors up
-- [ ] Get on board WiFi direct up
+- [X] Get beaglebone blue minimally running linux
+- [X] Custom Linux to get right drivers?
+- [X] Get IMU gyros and other on board sensors up
+- [X] Get on board WiFi up
 - [ ] Get vid cam streaming back to controller
 - [ ] Control a DC motor with the board
 - [ ] Control a servo with the board
