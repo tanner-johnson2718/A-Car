@@ -24,5 +24,5 @@
 - make
 - sudo make install
 - sudo mjpg_streamer -i "input_uvc.so -d /dev/video0" -o "output_http.so -p 8090 -w /usr/share/mjpg-streamer/www"
-- on host go to http://192.168.8.1:8090/stream.html
+- on host go to http://192.168.8.1:8090/ctlr.html
 - boom have wifi and streaming 
