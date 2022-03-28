@@ -28,7 +28,7 @@ interface with the device such as ssh, the cloud 9 IDE and debugger, and also
 - [ ] Control a rotary encoder with the board
 
 # Control Interface
-- [ ] Fork and modify mjpg-streamer so only web cam is displayed
+- [X] Fork and modify mjpg-streamer so only web cam is displayed
 - [ ] Also display on board imu sensor data on hosted web page
 - [ ] Send controller inputs to board and display on web page
 - [ ] Some extra data to be displayed eventually: signal strength, dropped
