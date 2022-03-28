@@ -113,39 +113,16 @@
   </head>
 
   <body onload="createImageLayer();">
-    <div id="sidebar">
-      <h1>MJPG-Streamer Demo Pages</h1>
-      <h2>a resource-friendly streaming application</h2>
-
-      <div id="menu">
-        <a href="index.html">Home</a>
-        <a href="static.html">Static</a>
-        <a href="stream.html">Stream</a>
-        <a href="java.html">Java</a>
-        <a class="active" href="javascript.html">Javascript</a>
-        <a href="videolan.html">VideoLAN</a>
-        <a target="_blank" onClick="window.open(this.href, '_blank','width=400,height=400'); return false;" href="control.htm">Control</a>
-      </div>
-
-      <h3>Version info:</h3>
-      <p>v0.1 (Okt 22, 2007)</p>
 
       <h3>Runtime info:</h3>
       <p><span id="info">-</span><br/>
       Avg<sub id="fN">-</sub> : <span  id="ravgms">-</span> ms (<span  id="ravgfps">-</span> fps)
       </p>
-      </div>
 
     <div id="content">
-      <h1>Javascript</h1>
-      <h2>Display the stream with javascript</h2>
+      <h1>Video Feed</h1>
+      <div id="webcam" style="width:512px;height:394px"><noscript><img src="./?action=snapshot" width="512px" height="384px" /></noscript></div>
 
-      <h3>Hints</h3>
-        <p>This example shows the stream by using java script. It works with most browsers. To see a simple example click <a href="javascript_simple.html">here</a>.</p>
-
-        <div id="webcam" style="width:512px;height:394px"><noscript><img src="./?action=snapshot" width="512px" height="384px" /></noscript></div>
-
-      <p>&copy; The <a href="http://mjpg-streamer.sf.net">MJPG-streamer team</a> | Design by <a href="http://andreasviklund.com">Andreas Viklund</a></p>
     </div>
   </body>
 </html>
