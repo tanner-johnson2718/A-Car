@@ -13,9 +13,10 @@ on the board. The network ESSID is "BeagleBone-9947" with password "BeagleBone".
 The board itself will host several services that allow one to control and 
 interface with the device such as ssh, the cloud 9 IDE and debugger, and also
 
-| IP  | Port | Protocol | Decription |
+| Decription  |  IP | Port  | Notes |
 | --- | ---  | -------- | ---------- |
-| 192.168.8.1
+| SSH Host | 192.168.8.1 | 22 | User is debian and password is temppwd |
+| Control Interface | 192.168.8.1 | 8090 | Car Control Interface |
 
 # Initial Proof of Concept Tasking
 - [X] Get XBOX controller working i.e. can detect controller input
