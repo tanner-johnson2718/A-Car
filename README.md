@@ -16,7 +16,11 @@ interface with the device such as ssh, the cloud 9 IDE and debugger, and also
 | Decription  |  IP | Port  | Notes |
 | --- | ---  | -------- | ---------- |
 | SSH Host | 192.168.8.1 | 22 | User is debian and password is temppwd |
-| Video Interface | 192.168.8.1 | 8090 | Video Stream Interface at http://192.168.8.1:8090/ctlr.html |
+| Video Interface | 192.168.8.1 | 8090 | Video Stream Interface at 
+http://192.168.8.1:8090/ctlr.html |
+| Sensor Stream | 192.168.8.1 | 8091 | Stream to send sensor data |
+| Cloud 9 debugger | 192.168.8.1 | 80 | Address of 192.168.8.1 resolves to
+debugger hosted on board |
 
 # Initial Proof of Concept Tasking
 - [X] Get XBOX controller working i.e. can detect controller input
@@ -25,15 +29,11 @@ interface with the device such as ssh, the cloud 9 IDE and debugger, and also
 - [X] Get IMU gyros and other on board sensors up
 - [ ] Control a DC motor with the board
 - [ ] Control a servo with the board
-- [ ] Control a rotary encoder with the board
 
 # Control Interface
 - [X] Fork and modify mjpg-streamer so only web cam is displayed
-- [ ] Also display on board imu sensor data on hosted web page
+- [ ] Also display on board imu sensor data
 - [ ] Send controller inputs to board and display on web page
-- [ ] Some extra data to be displayed eventually: signal strength, dropped
-      packets, battery life and discharge, power consuption, ... definetly more
-      can be added here.
 
 # Vehicle Operation and Integration Tasks
 - [ ] ... todo .. get board and RC car to interoperate
