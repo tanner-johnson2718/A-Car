@@ -16,7 +16,7 @@ interface with the device such as ssh, the cloud 9 IDE and debugger, and also
 | Decription  |  IP | Port  | Notes |
 | --- | ---  | -------- | ---------- |
 | SSH Host | 192.168.8.1 | 22 | User is debian and password is temppwd |
-| Control Interface | 192.168.8.1 | 8090 | Car Control Interface at http://192.168.8.1:8090/ctlr.html |
+| Video Interface | 192.168.8.1 | 8090 | Video Stream Interface at http://192.168.8.1:8090/ctlr.html |
 
 # Initial Proof of Concept Tasking
 - [X] Get XBOX controller working i.e. can detect controller input
