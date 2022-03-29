@@ -10,8 +10,28 @@ import getopt, sys
 import rcpy 
 import rcpy.mpu9250 as mpu9250
 
+# import python socket library to host sensor server
+import socket
+
+# init imu
 rcpy.set_state(rcpy.RUNNING)
 mpu9250.initialize(enable_magnetometer = True)
+
+# init server
+HOST = "192.168.8.1"
+PORT = 8091
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.bind((HOST, PORT))
+    s.listen()
+    conn, addr = s.accept()
+    with conn:
+        print(f"Connected by {addr}")
+        while True:
+            data = conn.recv(1024)    # blocking recv call
+            if not data:
+                break
+            conn.sendall(data)
 
 print("Press Ctrl-C to exit")
 
