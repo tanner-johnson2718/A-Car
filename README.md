@@ -36,7 +36,7 @@ controller input to board.
 - [X] Stream web cam video form BBB to PC
 - [X] Fork and modify mjpg-streamer so only web cam is displayed
 - [X] Also display on board imu sensor data
-- [ ] Send controller inputs to board and display on web page
+- [X] Send controller inputs to board and display on web page
 
 # Vehicle Operation and Integration with Control Interface
 - [ ] ... todo .. get board and RC car to interoperate
