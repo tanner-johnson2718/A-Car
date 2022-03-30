@@ -24,11 +24,11 @@ try:    # keep running
 
                 # signed short
                 mod_val = val
-                if (val & (1 << 16)) == 1:
-                    mod_val = val - (1<<16)
+                if (val >> 16) & 1:
+                    mod_val = (1<<16) - val
                 
                 
-                print("ID="+str(id)+" VAL="+str(val) + " MODV="+str(mod_val) + " ?="+str((1<<16) - val))
+                print("ID="+str(id)+" VAL="+str(val))
                     
 except KeyboardInterrupt:
     # Catch Ctrl-C
