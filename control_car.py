@@ -18,9 +18,11 @@ try:    # keep running
             while True:
                 # Loop
                 data = conn.recv(4)
-                print(data[0:2])
-                print(data[2:4])
-                print()
+
+                id = data[1]
+                val = data[3] + (data[2] << 8)
+                
+                print("ID="+str(id)+" VAL="+str(val))
                     
 except KeyboardInterrupt:
     # Catch Ctrl-C

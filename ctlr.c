@@ -200,9 +200,15 @@ int main()
             {
                 case LT_ANALOG_ID:
                     printf("LT event, x = %d\n", xval);
+                    packet.id = BACKWARD_ID;
+                    packet.val = xval;
+                    send(sock, &packet, sizeof(packet), 0);
                     break;
                 case RT_ANALOG_ID:
                     printf("RT event, x = %d\n", xval);
+                    packet.id = FORWARD_ID;
+                    packet.val = xval;
+                    send(sock, &packet, sizeof(packet), 0);
                     break;
                 case R_JOY_X:
                     printf("R joy X event, x = %d\n", xval);
