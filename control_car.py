@@ -23,9 +23,10 @@ try:    # keep running
                 val = data[2] + (data[3] << 8)
 
                 # signed short
-                mod_val = 0
+                mod_val = val
                 if (val & (1 << 16)) == 1:
-                    mod_val = val - (1<<16) 
+                    mod_val = val - (1<<16)
+                
                 
                 print("ID="+str(id)+" VAL="+str(val) + " MODV="+str(mod_val) + " ?="+str((1<<16) - val))
                     
