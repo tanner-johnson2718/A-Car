@@ -49,7 +49,7 @@ int cmd_size = 0x8;
 #define RT_ANALOG_ID 5
 
 // Packet defintion for data sent to vehicle
-#define 
+
 
 int main()
 {
@@ -73,7 +73,7 @@ int main()
         num_read = read(ctlr_fd, buff, cmd_size);
         if(num_read < 0)
         {
-            printf("Lost Connection to device\n");
+            printf("Lost Connection to device, please reconnect \n");
             return 1;
         }
         if(num_read != cmd_size)
