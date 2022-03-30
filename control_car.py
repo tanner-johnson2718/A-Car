@@ -17,7 +17,7 @@ try:    # keep running
             print(f"Control Service Connected by {addr}")
             while True:
                 # Loop
-                data = s.recv(4)
+                data = conn.recv(4)
                 print(data[0:2])
                 print(data[2:4])
                 print()

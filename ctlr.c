@@ -121,7 +121,7 @@ int main()
         }
         if(num_read != cmd_size)
         {
-            printf("Warning cmd buffer not filled, %d\n", num_read);
+            continue;
         }
 
         //*********************************************************************
