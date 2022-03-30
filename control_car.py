@@ -4,7 +4,6 @@ import time
 
 # import python socket library to host sensor server
 import socket
-import json
 
 # init server
 HOST = "192.168.8.1"
@@ -25,11 +24,11 @@ try:    # keep running
 
                 # signed short
                 mod_val = val
-                if (val >> 16) & 1:
-                    mod_val = val - 2*(1<<16)
+                if (val >> 15) & 1:
+                    mod_val = val - (1<<16)
                 
                 
-                print("ID="+str(id)+" VAL="+str(mod_val))
+                print("ID="+str(id)+" VAL="+str(mod_val)+" ?="+str((val >> 15) & 1))
                     
 except KeyboardInterrupt:
     # Catch Ctrl-C
