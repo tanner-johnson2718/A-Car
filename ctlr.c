@@ -15,7 +15,7 @@
 char* device_string = "/dev/input/js0";
 int cmd_size = 0x8;
 
-// CMD structure defines
+// CMD structure defines from XBOX ctlr
 #define INPUT_TYPE_BYTE 6
 #define BUTTON_ID_BYTE 7
 #define INPUT_TYPE_BUTTON 1
@@ -48,6 +48,8 @@ int cmd_size = 0x8;
 #define R_JOY_Y 4
 #define RT_ANALOG_ID 5
 
+// Packet defintion for data sent to vehicle
+#define 
 
 int main()
 {
