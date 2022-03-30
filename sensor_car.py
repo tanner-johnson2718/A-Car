@@ -2,6 +2,7 @@
 # Read and display IMU
 # Based on: https://raw.githubusercontent.com/mcdeoliveira/rcpy/master/examples/rcpy_test_imu.py
 # import python libraries
+from ctypes import sizeof
 import time
 import getopt, sys
 
@@ -20,41 +21,20 @@ mpu9250.initialize(enable_magnetometer = True)
 # init server
 HOST = "192.168.8.1"
 PORT = 8091
-
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.bind((HOST, PORT))
-    s.listen()
-    conn, addr = s.accept()
-    with conn:
-        print(f"Connected by {addr}")
-        while True:
-            data = conn.recv(1024)    # blocking recv call
-            if not data:
-                break
-            conn.sendall(data)
-
-print("Press Ctrl-C to exit")
-
-# header
-print("   Accel XYZ (m/s^2) |"
-      "    Gyro XYZ (deg/s) |", end='')
-print("  Mag Field XYZ (uT) |", end='')
-print(' Temp (C)')
-
 try:    # keep running
-    while True:
-        if rcpy.get_state() == rcpy.RUNNING:
-            temp = mpu9250.read_imu_temp()
-            data = mpu9250.read()
-            print(('\r{0[0]:6.2f} {0[1]:6.2f} {0[2]:6.2f} |'
-                   '{1[0]:6.1f} {1[1]:6.1f} {1[2]:6.1f} |'
-                   '{2[0]:6.1f} {2[1]:6.1f} {2[2]:6.1f} |'
-                   '   {3:6.1f}').format(data['accel'],
-                                         data['gyro'],
-                                         data['mag'],
-                                         temp),
-                  end='')
-        time.sleep(.5)  # sleep some
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.bind((HOST, PORT))
+        s.listen()
+        conn, addr = s.accept()
+        with conn:
+            print(f"Connected by {addr}")
+            while True:
+                if rcpy.get_state() == rcpy.RUNNING:
+                    temp = mpu9250.read_imu_temp()
+                    data = mpu9250.read()
+                    conn.sendall(data)
+                    time.sleep(.5)  # sleep some
+                    
 except KeyboardInterrupt:
     # Catch Ctrl-C
     pass
