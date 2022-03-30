@@ -26,7 +26,7 @@ try:    # keep running
                 # signed short
                 mod_val = val
                 if (val >> 16) & 1:
-                    mod_val = (1<<16) - val
+                    mod_val = val - (1<<16)
                 
                 
                 print("ID="+str(id)+" VAL="+str(mod_val))
