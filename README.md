@@ -1,7 +1,7 @@
 # A-Car
 Repo to hold content for a nerf mounter RC Car. Will use a linux based x86
 device to serve as car controller. Will have a wifi card and XBOX 360 ctlr to
-on the x86 controller with a UI to drive/operation vehicle and display car 
+on the x86 pc with a UI to drive/operation vehicle and display car 
 sensors such as acceleromoters, speed, video feed from vehicle, current 
 connection status, etc. The vehicle itself will be standard cheep RC car 
 "hacked" to be a controlled by a beaglebone blue. Initial goal it to simply
@@ -32,11 +32,17 @@ debugger hosted on board |
 
 # Control Interface
 - [X] Fork and modify mjpg-streamer so only web cam is displayed
-- [ ] Also display on board imu sensor data
+- [X] Also display on board imu sensor data
 - [ ] Send controller inputs to board and display on web page
 
-# Vehicle Operation and Integration Tasks
+# Vehicle Operation and Integration with Control Interface
 - [ ] ... todo .. get board and RC car to interoperate
+
+# Build and Design Independant Turret
+- [ ] ...
+
+# Mount and Integrate Turret with Vehicle
+- [ ] ...
 
 # SW Deps
 - Linux x86
@@ -44,6 +50,8 @@ debugger hosted on board |
     - xpad driver
     - vlc
     - ffmpeg
+    - gcc
+    - python3
 - Linux for beagle bone
     - v4l
     - ffmpeg
@@ -52,6 +60,7 @@ debugger hosted on board |
     - g++
     - libjpeg8-dev
     - mjpg-streamer
+    - python3
 
 # Hardware
 - x86 linux PC
