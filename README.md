@@ -7,7 +7,7 @@ connection status, etc. The vehicle itself will be standard cheep RC car
 "hacked" to be a controlled by a beaglebone blue. Initial goal it to simply
 get the vehicle moving and operational and mount a nerf gun later.
 
-# Network
+# Network, Processes and Services (SW)
 The network than connects the board to the PC will be hosted via wifi end point
 on the board. The network ESSID is "BeagleBone-9947" with password "BeagleBone".
 The board itself will host several services that allow one to control and 
@@ -21,7 +21,7 @@ controller input to board.
 | Video Interface | 192.168.8.1 | 8090 | Video Stream Interface | mjpg_streamer -i "input_uvc.so -d /dev/video0" -o "output_http.so -p 8090 -w /usr/local/share/mjpg-streamer/www" | firefox http://192.168.8.1:8090/ctlr.html |
 | Sensor Stream | 192.168.8.1 | 8091 | Stream to send sensor data | sensor_car.py | sensor_pc.py |
 | Control Stream | 192.168.8.1 | 8092 | Stream to send controller input | control_car.py | ctlr |
-| Cloud 9 debugger | 192.168.8.1 | 80 | Address of 192.168.8.1 resolves to debugger hosted on board | ?? | firfox 192.168.8.1 |
+| Cloud 9 debugger | 192.168.8.1 | 80 | Address of 192.168.8.1 resolves to debugger hosted on board | ?? | firefox 192.168.8.1 |
 
 # Initial Proof of Concept and Bring Up Tasking
 - [X] Get XBOX controller working i.e. can detect controller input
