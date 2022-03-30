@@ -20,7 +20,7 @@ controller input to board.
 | SSH Host | 192.168.8.1 | 22 | User is debian and password is temppwd | Open SSH linux host service | Open SSH client command |
 | Video Interface | 192.168.8.1 | 8090 | Video Stream Interface | mjpg_streamer -i "input_uvc.so -d /dev/video0" -o "output_http.so -p 8090 -w /usr/local/share/mjpg-streamer/www" | firefox http://192.168.8.1:8090/ctlr.html |
 | Sensor Stream | 192.168.8.1 | 8091 | Stream to send sensor data | sensor_car.py | sensor_pc.py |
-| Control Stream | 192.168.8.1 | 8092 | Stream to send controller input | control_car.py | ctlr |
+| Control Stream | 192.168.8.1 | 8092 | Stream to send controller input and control vehicle | control_car.py | ctlr |
 | Cloud 9 debugger | 192.168.8.1 | 80 | Address of 192.168.8.1 resolves to debugger hosted on board | ?? | firefox 192.168.8.1 |
 
 # Initial Proof of Concept and Bring Up Tasking
