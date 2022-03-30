@@ -13,6 +13,7 @@ import rcpy.mpu9250 as mpu9250
 
 # import python socket library to host sensor server
 import socket
+import json
 
 # init imu
 rcpy.set_state(rcpy.RUNNING)
@@ -32,7 +33,7 @@ try:    # keep running
                 if rcpy.get_state() == rcpy.RUNNING:
                     temp = mpu9250.read_imu_temp()
                     data = mpu9250.read()
-                    conn.sendall(data)
+                    conn.sendall(json.dumps(data))
                     time.sleep(.5)  # sleep some
                     
 except KeyboardInterrupt:
