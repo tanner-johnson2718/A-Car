@@ -21,6 +21,10 @@ try:    # keep running
 
                 id = data[0]
                 val = data[2] + (data[3] << 8)
+
+                # signed short
+                if (val & (1 << 16)) == 1:
+                    val = (1<<16) - val
                 
                 print("ID="+str(id)+" VAL="+str(val))
                     
