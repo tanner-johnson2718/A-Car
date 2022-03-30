@@ -19,8 +19,8 @@ try:    # keep running
                 # Loop
                 data = conn.recv(4)
 
-                id = data[1]
-                val = data[3] + (data[2] << 8)
+                id = data[0]
+                val = data[3] + (data[4] << 8)
                 
                 print("ID="+str(id)+" VAL="+str(val))
                     
