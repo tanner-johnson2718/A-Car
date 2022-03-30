@@ -20,7 +20,7 @@ try:    # keep running
                 data = conn.recv(4)
 
                 id = data[0]
-                val = data[3] + (data[4] << 8)
+                val = data[3] + (data[2] << 8)
                 
                 print("ID="+str(id)+" VAL="+str(val))
                     
