@@ -18,8 +18,7 @@ interface with the device such as ssh, the cloud 9 IDE and debugger, and also
 | SSH Host | 192.168.8.1 | 22 | User is debian and password is temppwd |
 | Video Interface | 192.168.8.1 | 8090 | Video Stream Interface at http://192.168.8.1:8090/ctlr.html |
 | Sensor Stream | 192.168.8.1 | 8091 | Stream to send sensor data |
-| Cloud 9 debugger | 192.168.8.1 | 80 | Address of 192.168.8.1 resolves to
-debugger hosted on board |
+| Cloud 9 debugger | 192.168.8.1 | 80 | Address of 192.168.8.1 resolves to debugger hosted on board |
 
 # Initial Proof of Concept Tasking
 - [X] Get XBOX controller working i.e. can detect controller input
