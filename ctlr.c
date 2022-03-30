@@ -10,6 +10,8 @@
 #include <stdio.h>    // printf
 #include <fcntl.h>    // open, O_RDONLY
 #include <unistd.h>   // close, read
+#include <sys/socket.h>
+#include <arpa/inet.h>
 
 #define DEBUG 0
 char* device_string = "/dev/input/js0";
@@ -49,12 +51,26 @@ int cmd_size = 0x8;
 #define RT_ANALOG_ID 5
 
 // Packet defintion for data sent to vehicle
+#define FORWARD_ID 0             // Right Trigger
+#define BACKWARD_ID 1            // Left Trigger
+#define TURN_ID 2
+#define ROT_RADIAL_ID 3
+#define ROT_AZIMUTH_ID 4
+#define FIRE_ID 5                // A button
 
+struct control_packet
+{
+    short id;
+    short val;
+} __attribute__((packed));
+
+#define PORT 8092
+#define IP "192.168.8.1"
 
 int main()
 {
 
-    // Open device
+    // Open XBOX device
     int ctlr_fd = open(device_string, O_RDONLY);
     if(ctlr_fd < 0)
     {
@@ -62,9 +78,36 @@ int main()
         return 1;
     }
 
+    // init socket
+    int sock = socket(AF_INET, SOCK_STREAM, 0);
+    if(sock < 1)
+    {
+        printf("Failed to Open socket\n");
+        return 1;
+    }
+
+    // Structure IP and port
+    struct sockaddr_in serv_addr;
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_port = htons(PORT);
+    if(inet_pton(AF_INET, IP, &serv_addr.sin_addr)<=0) 
+    {
+        printf("Invalid address or address not supported \n");
+        return 1;
+    }
+
+    // Connect to vehicle host
+    if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
+    {
+        printf("Connection Failed \n");
+        return 1;
+    }
+    
     // main loop
     int num_read = 0;
     char unsigned buff[cmd_size];
+    struct control_packet packet;
+
     while(1)
     {   
         //*********************************************************************
@@ -92,6 +135,15 @@ int main()
             {
                 case A_BUTTON_ID:
                     printf("A button event, pressed? %d \n", pressed);
+
+                    // Will define A as fire
+                    if(pressed)
+                    {
+                        packet.id = FIRE_ID;
+                        packet.val = 0;
+                        send(sock, &packet, sizeof(packet), 0);
+                    }
+
                     break;
                 case B_BUTTON_ID:
                     printf("B button event, pressed? %d \n", pressed);

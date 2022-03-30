@@ -28,7 +28,7 @@ try:    # keep running
         s.listen()
         conn, addr = s.accept()
         with conn:
-            print(f"Connected by {addr}")
+            print(f"Sensor Service Connected by {addr}")
             while True:
                 if rcpy.get_state() == rcpy.RUNNING:
                     temp = mpu9250.read_imu_temp()
@@ -41,4 +41,4 @@ except KeyboardInterrupt:
     pass
 
 finally:
-    print("\nBye BeagleBone!")
+    print("\Sensor Service Exitting!")

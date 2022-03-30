@@ -7,7 +7,7 @@ connection status, etc. The vehicle itself will be standard cheep RC car
 "hacked" to be a controlled by a beaglebone blue. Initial goal it to simply
 get the vehicle moving and operational and mount a nerf gun later.
 
-# Network, Processes and Services (SW)
+# Network, Processes and Services
 The network than connects the board to the PC will be hosted via wifi end point
 on the board. The network ESSID is "BeagleBone-9947" with password "BeagleBone".
 The board itself will host several services that allow one to control and 
