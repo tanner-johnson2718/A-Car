@@ -33,7 +33,7 @@ try:    # keep running
                 if rcpy.get_state() == rcpy.RUNNING:
                     temp = mpu9250.read_imu_temp()
                     data = mpu9250.read()
-                    conn.sendall(json.dumps(data))
+                    conn.sendall(json.dumps(data).encode())
                     time.sleep(.5)  # sleep some
                     
 except KeyboardInterrupt:
