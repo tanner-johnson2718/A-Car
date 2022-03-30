@@ -1,4 +1,5 @@
 from ctypes import sizeof
+from operator import mod
 import time
 
 # import python socket library to host sensor server
@@ -28,7 +29,7 @@ try:    # keep running
                     mod_val = (1<<16) - val
                 
                 
-                print("ID="+str(id)+" VAL="+str(val))
+                print("ID="+str(id)+" VAL="+str(mod_val))
                     
 except KeyboardInterrupt:
     # Catch Ctrl-C
