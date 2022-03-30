@@ -23,12 +23,14 @@ try:    # keep running
                 val = data[2] + (data[3] << 8)
 
                 # signed short
-                mod_val = val
                 if (val >> 15) & 1:
-                    mod_val = val - (1<<16)
+                    val = val - (1<<16)
+
+                # normalize
+                val = val + (1 << 15)
                 
                 
-                print("ID="+str(id)+" VAL="+str(mod_val)+" ?="+str((val >> 15) & 1))
+                print("ID="+str(id)+" VAL="+str(val))
                     
 except KeyboardInterrupt:
     # Catch Ctrl-C
