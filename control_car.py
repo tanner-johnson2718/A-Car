@@ -27,7 +27,7 @@ try:    # keep running
                     val = val - (1<<16)
 
                 # normalize
-                val = val + (1 << 15)
+                val = float(val + (1 << 15)) / float(1<<16)
                 
                 
                 print("ID="+str(id)+" VAL="+str(val))
