@@ -17,7 +17,7 @@
 - quit
 - Should now see interface on wlan0 for outside internet
 - update / upgrade
-- sudo apt-get install cmake libjpeg8-dev
+- sudo apt-get install cmake libjpeg62-turbo-dev
 - sudo apt-get install cmake gcc g++
 - git clone https://github.com/jacksonliam/mjpg-streamer
 - cd mjpg-streamer/mjpg-streamer-experimental

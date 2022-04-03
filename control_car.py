@@ -1,7 +1,3 @@
-from ctypes import sizeof
-from operator import mod
-import time
-
 # import python socket library to host sensor server
 import socket
 
@@ -14,7 +10,7 @@ try:    # keep running
         s.listen()
         conn, addr = s.accept()
         with conn:
-            print(f"Control Service Connected by {addr}")
+            print("Control Service Connected by " + str(addr))
             while True:
                 # Loop
                 data = conn.recv(4)

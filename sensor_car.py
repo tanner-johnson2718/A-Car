@@ -28,7 +28,7 @@ try:    # keep running
         s.listen()
         conn, addr = s.accept()
         with conn:
-            print(f"Sensor Service Connected by {addr}")
+            print("Sensor Service Connected by " + str(addr))
             while True:
                 if rcpy.get_state() == rcpy.RUNNING:
                     temp = mpu9250.read_imu_temp()
