@@ -28,7 +28,7 @@ controller input to board.
 - [X] Get BBB up with linux, proper drivers, and on same network as PC
 - [X] Get IMU gyros and other on board sensors up
 - [X] Control a DC motor with the board
-- [ ] Use osciliscope to snoop DC motor curciut
+- [X] Use osciliscope to snoop DC motor curciut
 - [ ] Control a servo with the board
 - [ ] Use osciliscope to snoop servo curciut
 
