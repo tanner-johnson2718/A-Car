@@ -64,13 +64,14 @@ controller input to board.
     - libjpeg8-dev
     - mjpg-streamer
     - python3
+    - rcpy
+    - librobotcontrol
 
 # Hardware
 - x86 linux PC
 - Beaglebone blue (BBB)
 - Spare DC motor for testing 
 - Spare servo for testing
-- Spare rotary encoder for testing
 - Xbox controller
 - USB web cam
 - 12V power supply for BBB
