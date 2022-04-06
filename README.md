@@ -31,18 +31,15 @@ controller input to board.
     - xpad driver
     - gcc
     - python3
-    - firefox
+    - firefox (web browser)
 - Linux for beagle bone (Debian 10.3)
     - v4l
-    - ffmpeg
     - cmake
     - gcc
     - g++
     - libjpeg8-dev
-    - mjpg-streamer
     - python3
-    - rcpy
-    - librobotcontrol
+    - rcpy / librobotcontrol
 
 # Initial Proof of Concept and Bring Up Tasking
 - [X] Get XBOX controller working i.e. can detect controller input
@@ -63,7 +60,7 @@ controller input to board.
 
 # Vehicle Desgin and Contruction
 
-- [] Solder quick connects to DC motor controler on board
+- [ ] Solder quick connects to DC motor controler on board
 
 ## v0
 Two straight mounting rails for BBB, Battery, camera, and eventually turret. 4
