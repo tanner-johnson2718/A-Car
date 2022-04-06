@@ -3,9 +3,11 @@ Repo to hold content for a nerf mounter RC Car. Will use a linux based x86
 device to serve as car controller. Will have a wifi card and XBOX 360 ctlr to
 on the x86 pc with a UI to drive/operation vehicle and display car 
 sensors such as acceleromoters, speed, video feed from vehicle, current 
-connection status, etc. The vehicle itself will be standard cheep RC car 
-"hacked" to be a controlled by a beaglebone blue. Initial goal it to simply
-get the vehicle moving and operational and mount a nerf gun later.
+connection status, etc. The vehicle it self will be 3D printed. This will be
+the most challanging and time consuming part of the project, though it will be
+the most personally educational. Car design will be very iterative to allow for
+learning and rapid prototyping. Also car design should be modular to allow for 
+easy improvements and upgrades.
 
 # Network, Processes and Services
 The network than connects the board to the PC will be hosted via wifi end point
@@ -23,39 +25,14 @@ controller input to board.
 | Control Stream | 192.168.8.1 | 8092 | Stream to send controller input and control vehicle | control_car.py | ctlr |
 | Cloud 9 debugger | 192.168.8.1 | 80 | Address of 192.168.8.1 resolves to debugger hosted on board | ?? | firefox 192.168.8.1 |
 
-# Initial Proof of Concept and Bring Up Tasking
-- [X] Get XBOX controller working i.e. can detect controller input
-- [X] Get BBB up with linux, proper drivers, and on same network as PC
-- [X] Get IMU gyros and other on board sensors up
-- [X] Control a DC motor with the board
-- [X] Use osciliscope to snoop DC motor curciut
-- [ ] Control a servo with the board
-- [ ] Use osciliscope to snoop servo curciut
-
-# Control Interface
-- [X] Stream web cam video form BBB to PC
-- [X] Fork and modify mjpg-streamer so only web cam is displayed
-- [X] Also display on board imu sensor data
-- [X] Send controller inputs to board and display on web page
-
-# Vehicle Operation and Integration with Control Interface
-- [ ] ... todo .. get board and RC car to interoperate
-
-# Build and Design Independant Turret
-- [ ] ...
-
-# Mount and Integrate Turret with Vehicle
-- [ ] ...
-
-# SW Deps
-- Linux x86
+## SW Deps
+- Linux x86 (Ubuntu 20.04)
     - dkms
     - xpad driver
-    - vlc
-    - ffmpeg
     - gcc
     - python3
-- Linux for beagle bone
+    - firefox
+- Linux for beagle bone (Debian 10.3)
     - v4l
     - ffmpeg
     - cmake
@@ -67,6 +44,39 @@ controller input to board.
     - rcpy
     - librobotcontrol
 
+# Initial Proof of Concept and Bring Up Tasking
+- [X] Get XBOX controller working i.e. can detect controller input
+- [X] Get BBB up with linux, proper drivers, and on same network as PC
+- [X] Get IMU gyros and other on board sensors up
+- [X] Control a DC motor with the board
+- [X] Use osciliscope to snoop DC motor curciut
+- [X] Control a servo with the board
+- [X] Use osciliscope to snoop servo curciut
+- [ ] Test with battery
+
+# Control Interface / Software Tasks
+- [X] Stream web cam video form BBB to PC
+- [X] Fork and modify mjpg-streamer so only web cam is displayed
+- [X] Also display on board imu sensor data
+- [X] Send controller inputs to board and display on web page
+- [ ] Display sensor data using matplotlib
+
+# Vehicle Desgin and Contruction
+
+- [] Solder quick connects to DC motor controler on board
+
+## v0
+Two straight mounting rails for BBB, Battery, camera, and eventually turret. 4
+DC motor housing that mount to the mounting rails to hold motors that transfer
+power to the wheels. 
+
+
+# Build and Design Independant Turret
+- [ ] ...
+
+# Mount and Integrate Turret with Vehicle
+- [ ] ...
+
 # Hardware
 - x86 linux PC
 - Beaglebone blue (BBB)
@@ -75,3 +85,8 @@ controller input to board.
 - Xbox controller
 - USB web cam
 - 12V power supply for BBB
+
+# Bonus Software Tasking
+- [ ] Read the device tree and compare to schematic to get better idea of all
+      the components on the board and how they are
+- [ ] Build SW on PC using build root

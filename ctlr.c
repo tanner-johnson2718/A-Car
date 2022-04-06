@@ -53,9 +53,9 @@ int cmd_size = 0x8;
 // Packet defintion for data sent to vehicle
 #define FORWARD_ID 0             // Right Trigger
 #define BACKWARD_ID 1            // Left Trigger
-#define TURN_ID 2
-#define ROT_RADIAL_ID 3
-#define ROT_AZIMUTH_ID 4
+#define TURN_ID 2                // Left analog stick, X-axis
+#define ROT_RADIAL_ID 3          // Right analog stick, x-axis
+#define ROT_AZIMUTH_ID 4         // Right analog stick, y-axis
 #define FIRE_ID 5                // A button
 
 struct control_packet
@@ -212,12 +212,21 @@ int main()
                     break;
                 case R_JOY_X:
                     printf("R joy X event, x = %d\n", xval);
+                    packet.id = ROT_RADIAL_ID;
+                    packet.val = xval;
+                    send(sock, &packet, sizeof(packet), 0);
                     break;
                 case R_JOY_Y:
                     printf("R joy Y event, x = %d\n", xval);
+                    packet.id = ROT_AZIMUTH_ID;
+                    packet.val = xval;
+                    send(sock, &packet, sizeof(packet), 0);
                     break;
                 case L_JOY_X:
                     printf("L joy X event, x = %d\n", xval);
+                    packet.id = TURN_ID;
+                    packet.val = xval;
+                    send(sock, &packet, sizeof(packet), 0);
                     break;
                 case L_JOY_Y:
                     printf("L joy Y event, x = %d\n", xval);

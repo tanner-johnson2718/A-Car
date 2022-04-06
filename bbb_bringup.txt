@@ -25,4 +25,9 @@
 - sudo make install
 - sudo mjpg_streamer -i "input_uvc.so -d /dev/video0" -o "output_http.so -p 8090 -w /usr/share/mjpg-streamer/www"
 - on host go to http://192.168.8.1:8090/ctlr.html
-- boom have wifi and streaming 
+- boom have wifi and streaming
+- ... Problem with servo controller
+- Update boot loader by modifying the file /boot/uEnv.txt
+- uncomment this line: "cmdline=init=/opt/scripts/tools/eMMC/init-eMMC-flasher-v3.sh"
+- restart the board and wait till all LEDs turn solid
+- take out micro SD and boom you have working servos
