@@ -61,14 +61,11 @@ controller input to board.
 # Vehicle Desgin, Contruction, and Testing
 
 - [X] Solder quick connects to DC motor controler on board
-   - DC motors are ct-18 55T high torque motors
 - [ ] Aluminum flat and angle rod for frame, build and design frame
-   - Input material: 3ft X 3/4" X 1/16": flat
-   - Input material: 2ft X 3/4" X 1/16" w/ 1/2" lip angle angle aluminum
 - [ ] 3D print rear wheels to mount directly to DC motors
+   - Wheels.FCStd
 - [ ] 3D print front control arms, servo housing, and axel. 1 servo per front
       wheel
-   - 2 HS-422s
 - [ ] Assemble
 - [ ] Write code to control DC motors i.e. rear wheels
 - [ ] Write code to implement Akerman steering on the 2 front servos
@@ -81,7 +78,7 @@ controller input to board.
 | Acceleration | Acceleration curve | m/s^2 |
 | Velocity | Max speed | m/s |
 | Vibration | Average length of gyro vector | deg / s |
-| Steering alignment | ?? Not sure, need to measure drift somehow | unit less / meters drifted per meter of movement in pefered direction |
+| Steering alignment | Not sure, need to measure drift somehow | unit less / meters drifted per meter of movement in pefered direction |
 | Power Consumption Curve | How much power drawn at given load | W |
 | Signal integerity Curve | How much range can I go without lossing Coms | m |
 
@@ -89,14 +86,23 @@ controller input to board.
 - [ ] ...
 
 # Materials
-- x86 linux PC
-- Beaglebone blue (BBB)
-- Spare DC motor for testing 
-- Spare servo for testing
-- Xbox controller
-- USB web cam
-- 12V power supply for BBB
-- TODO add all materials and make nice table
+
+| Material | Qty | Description |
+| --- | --- | --- |
+| x86 linux PC | 1 | Ubuntu 20.04 HP Desktop |
+| Beaglebone blue (BBB) | 1 | Rev A2 |
+| Xbox 360 controller | 1 | W/ USB adapter |
+| USB web cam | 1 | Logitech CV 270 |
+| 12V power supply for testing BBB | 1 | 2A, barrel connector |
+| CR-18 55T DC Motors | 2 | need data sheet |
+| HS-422 servos | 2 | need data sheet |
+| Aluminum Flat | 4ft | 4ft X 3/4" X 1/16" | 
+| Aluminum Angle | 3ft | 3ft X 3/4" X 1/16" w/ 1/2" lip |
+| Number 2 Screws | 8 | Mount motor to angle aluminum |
+| Number 2 Washers | 8 | Provide spacing for DC motor mount |
+| Nuts and Bolts | ? | ? |
+| PLA 1.75mm 3D printer filament | ? | ? |
+| LiPo Battery | ? | ? |
 
 # Bonus Software Tasking
 - [ ] Read the device tree and compare to schematic to get better idea of all
