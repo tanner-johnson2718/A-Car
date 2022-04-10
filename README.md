@@ -58,7 +58,7 @@ controller input to board.
 - [X] Send controller inputs to board and display on web page
 - [ ] Display sensor data using matplotlib
 
-# Vehicle Desgin, Contruction, and testing
+# Vehicle Desgin, Contruction, and Testing
 
 - [X] Solder quick connects to DC motor controler on board
    - DC motors are ct-18 55T high torque motors
@@ -80,7 +80,10 @@ controller input to board.
 | --- | --- | --- |
 | Acceleration | Acceleration curve | m/s^2 |
 | Velocity | Max speed | m/s |
-| Vibration | Average length of gyro vector | ?? |
+| Vibration | Average length of gyro vector | deg / s |
+| Steering alignment | ?? Not sure, need to measure drift somehow | unit less / meters drifted per meter of movement in pefered direction |
+| Power Consumption Curve | How much power drawn at given load | W |
+| Signal integerity Curve | How much range can I go without lossing Coms | m |
 
 # Build and Design Independant Turret
 - [ ] ...
