@@ -58,23 +58,34 @@ controller input to board.
 - [X] Send controller inputs to board and display on web page
 - [ ] Display sensor data using matplotlib
 
-# Vehicle Desgin and Contruction
+# Vehicle Desgin, Contruction, and testing
 
-- [ ] Solder quick connects to DC motor controler on board
+- [X] Solder quick connects to DC motor controler on board
+   - DC motors are ct-18 55T high torque motors
+- [ ] Aluminum flat and angle rod for frame, build and design frame
+   - Input material: 3ft X 3/4" X 1/16": flat
+   - Input material: 2ft X 3/4" X 1/16" w/ 1/2" lip angle angle aluminum
+- [ ] 3D print rear wheels to mount directly to DC motors
+- [ ] 3D print front control arms, servo housing, and axel. 1 servo per front
+      wheel
+   - 2 HS-422s
+- [ ] Assemble
+- [ ] Write code to control DC motors i.e. rear wheels
+- [ ] Write code to implement Akerman steering on the 2 front servos
+- [ ] Write code for gathering performance metrics
 
-## v0
-Two straight mounting rails for BBB, Battery, camera, and eventually turret. 4
-DC motor housing that mount to the mounting rails to hold motors that transfer
-power to the wheels. 
+## Vehicle Performance Testing
 
+| Metric | Description | Units |
+| --- | --- | --- |
+| Acceleration | Acceleration curve | m/s^2 |
+| Velocity | Max speed | m/s |
+| Vibration | Average length of gyro vector | ?? |
 
 # Build and Design Independant Turret
 - [ ] ...
 
-# Mount and Integrate Turret with Vehicle
-- [ ] ...
-
-# Hardware
+# Materials
 - x86 linux PC
 - Beaglebone blue (BBB)
 - Spare DC motor for testing 
@@ -82,6 +93,7 @@ power to the wheels.
 - Xbox controller
 - USB web cam
 - 12V power supply for BBB
+- TODO add all materials and make nice table
 
 # Bonus Software Tasking
 - [ ] Read the device tree and compare to schematic to get better idea of all
