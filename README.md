@@ -61,9 +61,9 @@ controller input to board.
 # Vehicle Desgin, Contruction, and Testing
 
 - [X] Solder quick connects to DC motor controler on board
-- [ ] Aluminum flat and angle rod for frame, build and design frame
 - [ ] 3D print rear wheels to mount directly to DC motors
-   - Wheels.FCStd
+   - wheel3.FCStd
+- [ ] 3D print motor housing to match wheel
 - [ ] 3D print front control arms, servo housing, and axel. 1 servo per front
       wheel
 - [ ] Assemble
