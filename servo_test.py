@@ -21,10 +21,15 @@ rcpy.set_state(rcpy.RUNNING)
 srvo = servo.Servo(channel)
 srvo.set(duty)
 clck = clock.Clock(srvo, period)
+
+
     
 try:
     servo.enable()
     clck.start()
+
+    while True:
+        time.sleep(1)
             
 except KeyboardInterrupt:
     # handle what to do when Ctrl-C was pressed
