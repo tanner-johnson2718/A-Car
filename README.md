@@ -49,7 +49,7 @@ controller input to board.
 - [X] Use osciliscope to snoop DC motor curciut
 - [X] Control a servo with the board
 - [X] Use osciliscope to snoop servo curciut
-- [ ] Test with battery
+- [X] Test with battery
 
 # Control Interface / Software Tasks
 - [X] Stream web cam video form BBB to PC
@@ -61,9 +61,10 @@ controller input to board.
 # Vehicle Desgin, Contruction, and Testing
 
 - [X] Solder quick connects to DC motor controler on board
-- [ ] 3D print rear wheels to mount directly to DC motors
+- [X] 3D print wheels to mount directly to DC motors
    - wheel3.FCStd
-- [ ] 3D print motor housing to match wheel
+- [ ] 3D print rear motor housing to match wheel
+   - Motor Housing.FCStd
 - [ ] 3D print front control arms, servo housing, and axel. 1 servo per front
       wheel
 - [ ] Assemble
@@ -98,11 +99,11 @@ controller input to board.
 | HS-422 servos | 2 | need data sheet |
 | Aluminum Flat | 4ft | 4ft X 3/4" X 1/16" | 
 | Aluminum Angle | 3ft | 3ft X 3/4" X 1/16" w/ 1/2" lip |
-| Number 2 Screws | 8 | Mount motor to angle aluminum |
+| Number 2 Screws | 8 | Assemble Motor Housing? |
 | Number 2 Washers | 8 | Provide spacing for DC motor mount |
-| Nuts and Bolts | ? | ? |
-| PLA 1.75mm 3D printer filament | ? | ? |
-| LiPo Battery | ? | ? |
+| Nuts and Bolts | 50 | .25" diameter, .5" long machine bolts |
+| PLA 1.75mm 3D printer filament | 1Kg | ? |
+| LiPo Battery | 1 | Hobby Plus 600 mAh, 7.4V 2 cell |
 
 # Bonus Software Tasking
 - [ ] Read the device tree and compare to schematic to get better idea of all
