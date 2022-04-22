@@ -21,8 +21,6 @@ rcpy.set_state(rcpy.RUNNING)
 srvo = servo.Servo(channel)
 srvo.set(duty)
 clck = clock.Clock(srvo, period)
-
-
     
 try:
     servo.enable()
