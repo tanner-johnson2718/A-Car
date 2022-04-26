@@ -61,12 +61,10 @@ controller input to board.
 # Vehicle Desgin, Contruction, and Testing
 
 - [X] Solder quick connects to DC motor controler on board
-- [X] 3D print wheels to mount directly to DC motors
-   - wheel3.FCStd
-- [ ] 3D print rear motor housing to match wheel
-   - Motor Housing.FCStd
-- [ ] 3D print front control arms, servo housing, and axel. 1 servo per front
-      wheel
+- [X] Design wheels to mount directly to DC motors
+- [X] Design motor housing
+- [X] Design suspension
+- [ ] Design Steering
 - [ ] Assemble
 - [ ] Write code to control DC motors i.e. rear wheels
 - [ ] Write code to implement Akerman steering on the 2 front servos
