@@ -1,7 +1,7 @@
 # A-Car
 Repo to hold content for a nerf mounter RC Car. Will use a linux based x86
-device to serve as car controller. Will have a wifi card and XBOX 360 ctlr to
-on the x86 pc with a UI to drive/operation vehicle and display car 
+device to serve as car controller. Will have a wifi card and XBOX 360 ctlr 
+on the x86 pc with a UI to drive/operate vehicle and display car 
 sensors such as acceleromoters, speed, video feed from vehicle, current 
 connection status, etc. The vehicle it self will be 3D printed. This will be
 the most challanging and time consuming part of the project, though it will be
@@ -20,13 +20,13 @@ controller input to board.
 | Decription  |  IP | Port  | Notes | Vehicle Host Process | PC Client Process |
 | --- | ---  | -------- | ---------- | --- | --- |
 | SSH Host | 192.168.8.1 | 22 | User is debian and password is temppwd | Open SSH linux host service | Open SSH client command |
-| Video Interface | 192.168.8.1 | 8090 | Video Stream Interface | mjpg_streamer -i "input_uvc.so -d /dev/video0" -o "output_http.so -p 8090 -w /usr/local/share/mjpg-streamer/www" | firefox http://192.168.8.1:8090/ctlr.html |
+| Video Interface | 192.168.8.1 | 8090 | Video Stream Interface | mjpg_streamer -i "input_uvc.so -d /dev/video0" -o "output_http.so -p 8090 -w /usr/local/share/mjpg-streamer/www" | firefox http://192.168.8.1:8090/ctlr.html |*/
 | Sensor Stream | 192.168.8.1 | 8091 | Stream to send sensor data | sensor_car.py | sensor_pc.py |
 | Control Stream | 192.168.8.1 | 8092 | Stream to send controller input and control vehicle | control_car.py | ctlr |
 | Cloud 9 debugger | 192.168.8.1 | 80 | Address of 192.168.8.1 resolves to debugger hosted on board | ?? | firefox 192.168.8.1 |
 
-## SW Deps
-- Linux x86 (Ubuntu 20.04)
+## SW Dep
+- Linux x86 (Ubuntu 20.04)S
     - dkms
     - xpad driver
     - gcc
@@ -95,11 +95,7 @@ controller input to board.
 | 12V power supply for testing BBB | 1 | 2A, barrel connector |
 | CR-18 55T DC Motors | 2 | need data sheet |
 | HS-422 servos | 2 | need data sheet |
-| Aluminum Flat | 4ft | 4ft X 3/4" X 1/16" | 
-| Aluminum Angle | 3ft | 3ft X 3/4" X 1/16" w/ 1/2" lip |
-| Number 2 Screws | 8 | Assemble Motor Housing? |
-| Number 2 Washers | 8 | Provide spacing for DC motor mount |
-| Nuts and Bolts | 50 | .25" diameter, .5" long machine bolts |
+| M4 Nuts and Bolts | 20+ | 4mm diameter, various length |
 | PLA 1.75mm 3D printer filament | 1Kg | ? |
 | LiPo Battery | 1 | Hobby Plus 600 mAh, 7.4V 2 cell |
 
