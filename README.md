@@ -64,10 +64,9 @@ controller input to board.
 - [X] Design wheels to mount directly to DC motors
 - [X] Design motor housing
 - [X] Design suspension
-- [ ] Design Steering
-- [ ] Assemble
+- [X] Design Frame
+- [ ] Print, refine tolerances and assemble
 - [ ] Write code to control DC motors i.e. rear wheels
-- [ ] Write code to implement Akerman steering on the 2 front servos
 - [ ] Write code for gathering performance metrics
 
 ## Vehicle Performance Testing
@@ -77,7 +76,6 @@ controller input to board.
 | Acceleration | Acceleration curve | m/s^2 |
 | Velocity | Max speed | m/s |
 | Vibration | Average length of gyro vector | deg / s |
-| Steering alignment | Not sure, need to measure drift somehow | unit less / meters drifted per meter of movement in pefered direction |
 | Power Consumption Curve | How much power drawn at given load | W |
 | Signal integerity Curve | How much range can I go without lossing Coms | m |
 
