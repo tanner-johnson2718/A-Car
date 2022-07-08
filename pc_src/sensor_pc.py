@@ -16,11 +16,27 @@ HOST = "192.168.8.1"
 PORT = 8091  # The port used by the server
 
 # create plot to display data
-fig, ((ax)) = plt.subplots(1,1)
-ax.set_ylim(bottom=-1,top=1)
-ax.set_xlim(left=-10,right=10)
-line, = ax.plot([], [], lw=3)
-ax.grid(1)
+soa = np.array([[0, 0, 0, 1, 0, 0], [0, 0, 0, 1, 0, 0]])
+
+X, Y, Z, U, V, W = zip(*soa)
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.quiver(X, Y, Z, U, V, W)
+ax.set_xlim([-1, 1])
+ax.set_ylim([-1, 1])
+ax.set_zlim([-1, 1])
+
+def animate(i):
+    soa = np.array([[0, 0, 0, 1, np.cos(i), np.sin(i)], [0, 0, 0, 1, 0, 0]])
+    X, Y, Z, U, V, W = zip(*soa)
+    ax.clear()
+    ax.set_xlim([-1, 1])
+    ax.set_ylim([-1, 1])
+    ax.set_zlim([-1, 1])
+    ax.quiver(X, Y, Z, U, V, W)
+    return ax, 
+
+anim = animation.FuncAnimation(fig, animate, interval=5, blit=True)
 
 plt.show()
 
