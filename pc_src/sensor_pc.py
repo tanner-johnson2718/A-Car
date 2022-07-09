@@ -12,35 +12,12 @@ import numpy as np
 import matplotlib.animation as animation
 
 # sensor stream IP and port
-HOST = "192.168.8.1"
-PORT = 8091  # The port used by the server
+# HOST = "192.168.8.1"
+HOST = "127.0.0.1"
+PORT = 8091 
 
-# create plot to display data
-soa = np.array([[0, 0, 0, 1, 0, 0], [0, 0, 0, 1, 0, 0]])
-
-X, Y, Z, U, V, W = zip(*soa)
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
-ax.quiver(X, Y, Z, U, V, W)
-ax.set_xlim([-1, 1])
-ax.set_ylim([-1, 1])
-ax.set_zlim([-1, 1])
-
-def animate(i):
-    soa = np.array([[0, 0, 0, 1, np.cos(i), np.sin(i)], [0, 0, 0, 1, 0, 0]])
-    X, Y, Z, U, V, W = zip(*soa)
-    ax.clear()
-    ax.set_xlim([-1, 1])
-    ax.set_ylim([-1, 1])
-    ax.set_zlim([-1, 1])
-    ax.quiver(X, Y, Z, U, V, W)
-    return ax, 
-
-anim = animation.FuncAnimation(fig, animate, interval=5, blit=True)
-
-plt.show()
-
-exit(0)
 
 print("Press Ctrl-C to exit")
 
@@ -54,8 +31,8 @@ try:    # keep running
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.connect((HOST, PORT))
-        
-        while True:
+
+        def animate(i):
             data = json.loads(s.recv(1024))
             print(('\r{0[0]:6.2f} {0[1]:6.2f} {0[2]:6.2f} |'
                    '{1[0]:6.1f} {1[1]:6.1f} {1[2]:6.1f} |'
@@ -65,6 +42,19 @@ try:    # keep running
                                          data['mag'],
                                          -1),
                   end='')
+            
+            ax.clear()
+            ax.set_xlim([-1, 1])
+            ax.set_ylim([-1, 1])
+            ax.set_zlim([-1, 1])
+            ax.quiver([0,0,0], [0,0,0], [0,0,0], 
+                      [data['accel'][0], data['gyro'][0], data['mag'][0]], 
+                      [data['accel'][1], data['gyro'][1], data['mag'][1]], 
+                      [data['accel'][2], data['gyro'][2], data['mag'][2]])
+            return ax,
+
+        anim = animation.FuncAnimation(fig, animate, interval=5, blit=True)
+        plt.show()
 
 
 except KeyboardInterrupt:
