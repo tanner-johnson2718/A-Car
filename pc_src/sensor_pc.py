@@ -16,8 +16,12 @@ import matplotlib.animation as animation
 HOST = "127.0.0.1"
 PORT = 8091 
 
+# set up
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
+ax.set_xlim([-1, 1])
+ax.set_ylim([-1, 1])
+ax.set_zlim([-1, 1])
 
 print("Press Ctrl-C to exit")
 
@@ -44,9 +48,6 @@ try:    # keep running
                   end='')
             
             ax.clear()
-            ax.set_xlim([-1, 1])
-            ax.set_ylim([-1, 1])
-            ax.set_zlim([-1, 1])
             ax.quiver([0,0,0], [0,0,0], [0,0,0], 
                       [data['accel'][0], data['gyro'][0], data['mag'][0]], 
                       [data['accel'][1], data['gyro'][1], data['mag'][1]], 
