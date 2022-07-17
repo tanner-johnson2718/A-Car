@@ -1,2 +1,4 @@
 all: ctlr.c
-	gcc ctlr.c -o ctlr 
+	gcc ctlr.c -o ctlr
+clean:
+	rm ctlr
