@@ -1,13 +1,13 @@
 # A-Car
-Repo to hold content for a nerf mounter RC Car. Will use a linux based x86
-device to serve as car controller. Will have a wifi card and XBOX 360 ctlr 
-on the x86 pc with a UI to drive/operate vehicle and display car 
-sensors such as acceleromoters, speed, video feed from vehicle, current 
-connection status, etc. The vehicle it self will be 3D printed. This will be
-the most challanging and time consuming part of the project, though it will be
-the most personally educational. Car design will be very iterative to allow for
-learning and rapid prototyping. Also car design should be modular to allow for 
-easy improvements and upgrades.
+First iteration of RC car project. The RC car project will be a 3D printed,
+custom built RC car controlled by a laptop with an XBOX controller connected
+to it. This first iteration will have the following features and milestones.
+
+- Use out of box OS and SW for Beagle Bone Blue (On-Vehicle controller).
+- Build and Print RC car using 3D printer and standard DC motor and servos
+- Send and display sensor and camera data from vehicle on controlling laptop
+- Control car with XBOX controller
+- Gather and display imporant vehicle performance metrics (See below)
 
 # Network, Processes and Services
 The network than connects the board to the PC will be hosted via wifi end point
@@ -26,7 +26,7 @@ controller input to board.
 | Cloud 9 debugger | 192.168.8.1 | 80 | Address of 192.168.8.1 resolves to debugger hosted on board | ?? | firefox 192.168.8.1 |
 
 ## SW Dep
-- Linux x86 (Ubuntu 20.04)S
+- Linux x86 (Ubuntu 20.04)
     - dkms
     - xpad driver
     - gcc
@@ -79,9 +79,6 @@ controller input to board.
 | Power Consumption Curve | How much power drawn at given load | W |
 | Signal integerity Curve | How much range can I go without lossing Coms | m |
 
-# Build and Design Independant Turret
-- [ ] ...
-
 # Materials
 
 | Material | Qty | Description |
@@ -97,7 +94,8 @@ controller input to board.
 | PLA 1.75mm 3D printer filament | 1Kg | ? |
 | LiPo Battery | 1 | Hobby Plus 600 mAh, 7.4V 2 cell |
 
-# Bonus Software Tasking
-- [ ] Read the device tree and compare to schematic to get better idea of all
-      the components on the board and how they are
-- [ ] Build SW on PC using build root
+# SW Development Workflow
+
+# Conclusion and Next Steps
+
+# Pictures and Videos of Final Product
