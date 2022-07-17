@@ -4,6 +4,7 @@ custom built RC car controlled by a laptop with an XBOX controller connected
 to it. This first iteration will have the following features and milestones.
 
 - Use out of box OS and SW for Beagle Bone Blue (On-Vehicle controller).
+- Board bring up and initial testing.
 - Build and Print RC car using 3D printer and standard DC motor and servos
 - Send and display sensor and camera data from vehicle on controlling laptop
 - Control car with XBOX controller
