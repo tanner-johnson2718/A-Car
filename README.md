@@ -11,7 +11,7 @@ to it. This first iteration will have the following features and milestones.
 - Gather and display imporant vehicle performance metrics (See below)
 
 # Network, Processes and Services
-The network than connects the board to the PC will be hosted via wifi end point
+The network that connects the board to the PC will be hosted via wifi end point
 on the board. The network ESSID is "BeagleBone-9947" with password "BeagleBone".
 The board itself will host several services that allow one to control and 
 interface with the device such as ssh, the cloud 9 IDE and debugger, and also
@@ -67,7 +67,7 @@ controller input to board.
 - [X] Design suspension
 - [X] Design Frame
 - [ ] Print, refine tolerances and assemble
-- [ ] Write code to control DC motors i.e. rear wheels
+- [ ] Write code to control vehicle
 - [ ] Write code for gathering performance metrics
 
 ## Vehicle Performance Testing

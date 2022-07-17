@@ -34,7 +34,8 @@ try:    # keep running
                     temp = mpu9250.read_imu_temp()
                     data = mpu9250.read()
                     conn.sendall(json.dumps(data).encode())
-                    time.sleep(.1)  # sleep some
+                    print(json.dumps(data).encode())
+                    time.sleep(.25)  # sleep some
                     
 except KeyboardInterrupt:
     # Catch Ctrl-C
