@@ -14,7 +14,8 @@
 #include <arpa/inet.h>
 
 #define DEBUG 0
-char* device_string = "/dev/input/js0";
+#define CONNECT 1
+char* device_string = "/dev/input/js1";
 int cmd_size = 0x8;
 
 // CMD structure defines from XBOX ctlr
@@ -77,31 +78,36 @@ int main()
         printf("Failed to open XBOX device: %s\n", device_string);
         return 1;
     }
+    printf("XBOX device connected\n");
 
     // init socket
-    int sock = socket(AF_INET, SOCK_STREAM, 0);
-    if(sock < 1)
-    {
-        printf("Failed to Open socket\n");
-        return 1;
-    }
+    #if CONNECT
+        int sock = socket(AF_INET, SOCK_STREAM, 0);
+        if(sock < 1)
+        {
+            printf("Failed to Open socket\n");
+            return 1;
+        }
 
-    // Structure IP and port
-    struct sockaddr_in serv_addr;
-    serv_addr.sin_family = AF_INET;
-    serv_addr.sin_port = htons(PORT);
-    if(inet_pton(AF_INET, IP, &serv_addr.sin_addr)<=0) 
-    {
-        printf("Invalid address or address not supported \n");
-        return 1;
-    }
+        // Structure IP and port
+        struct sockaddr_in serv_addr;
+        serv_addr.sin_family = AF_INET;
+        serv_addr.sin_port = htons(PORT);
+        if(inet_pton(AF_INET, IP, &serv_addr.sin_addr)<=0) 
+        {
+            printf("Invalid address or address not supported \n");
+            return 1;
+        }
 
-    // Connect to vehicle host
-    if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
-    {
-        printf("Connection Failed \n");
-        return 1;
-    }
+        // Connect to vehicle host
+        if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
+        {
+            printf("Connection Failed \n");
+            return 1;
+        }
+        printf("Veichle Host server connected\n");
+
+    #endif
     
     // main loop
     int num_read = 0;
@@ -116,7 +122,7 @@ int main()
         num_read = read(ctlr_fd, buff, cmd_size);
         if(num_read < 0)
         {
-            printf("Lost Connection to device, please reconnect \n");
+            printf("Lost Connection to XBOX device, please reconnect \n");
             return 1;
         }
         if(num_read != cmd_size)
@@ -136,13 +142,15 @@ int main()
                 case A_BUTTON_ID:
                     printf("A button event, pressed? %d \n", pressed);
 
-                    // Will define A as fire
-                    if(pressed)
-                    {
-                        packet.id = FIRE_ID;
-                        packet.val = 0;
-                        send(sock, &packet, sizeof(packet), 0);
-                    }
+                    #if CONNECT
+                        // Will define A as fire
+                        if(pressed)
+                        {
+                            packet.id = FIRE_ID;
+                            packet.val = 0;
+                            send(sock, &packet, sizeof(packet), 0);
+                        }
+                    #endif
 
                     break;
                 case B_BUTTON_ID:
@@ -196,43 +204,43 @@ int main()
             unsigned char xval_1 = buff[ANALOG_BYTE_1];
             unsigned char xval_2 = buff[ANALOG_BYTE_2];
             short xval = (((short)xval_2) << 8) + ((short) xval_1);
+
             switch(buff[BUTTON_ID_BYTE])
             {
                 case LT_ANALOG_ID:
                     printf("LT event, x = %d\n", xval);
                     packet.id = BACKWARD_ID;
                     packet.val = xval;
-                    send(sock, &packet, sizeof(packet), 0);
                     break;
                 case RT_ANALOG_ID:
                     printf("RT event, x = %d\n", xval);
                     packet.id = FORWARD_ID;
                     packet.val = xval;
-                    send(sock, &packet, sizeof(packet), 0);
                     break;
                 case R_JOY_X:
                     printf("R joy X event, x = %d\n", xval);
                     packet.id = ROT_RADIAL_ID;
                     packet.val = xval;
-                    send(sock, &packet, sizeof(packet), 0);
                     break;
                 case R_JOY_Y:
                     printf("R joy Y event, x = %d\n", xval);
                     packet.id = ROT_AZIMUTH_ID;
                     packet.val = xval;
-                    send(sock, &packet, sizeof(packet), 0);
                     break;
                 case L_JOY_X:
                     printf("L joy X event, x = %d\n", xval);
                     packet.id = TURN_ID;
                     packet.val = xval;
-                    send(sock, &packet, sizeof(packet), 0);
                     break;
                 case L_JOY_Y:
                     printf("L joy Y event, x = %d\n", xval);
                     break;
 
             }
+
+            #if CONNECT
+                send(sock, &packet, sizeof(packet), 0);
+            #endif
         }
         else
         {
