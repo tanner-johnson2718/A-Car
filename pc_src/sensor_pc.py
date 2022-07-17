@@ -63,4 +63,4 @@ except KeyboardInterrupt:
     pass
 
 finally:
-    print("\nExiting ...")
+    print("\nExiting...")
