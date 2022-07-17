@@ -57,7 +57,7 @@ controller input to board.
 - [X] Fork and modify mjpg-streamer so only web cam is displayed
 - [X] Also display on board imu sensor data
 - [X] Send controller inputs to board and display on web page
-- [ ] Display sensor data using matplotlib
+- [X] Display sensor data using matplotlib
 
 # Vehicle Desgin, Contruction, and Testing
 

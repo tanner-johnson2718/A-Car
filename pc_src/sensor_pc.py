@@ -50,9 +50,9 @@ try:    # keep running
                   end='')
             
             ax.clear()
-            ax.set_xlim([-10, 10])
-            ax.set_ylim([-10, 10])
-            ax.set_zlim([-10, 10])
+            ax.set_xlim([-25, 25])
+            ax.set_ylim([-25, 25])
+            ax.set_zlim([-25, 25])
             ax.quiver([0,0], [0,0], [0,0],
                       [data['accel'][0], data['gyro'][0]], 
                       [data['accel'][1], data['gyro'][1]], 
