@@ -1,6 +1,8 @@
 # Read json data from car sensor stream. Display data on terminal as it becomes
 # available.
 
+# 
+
 # import packages to read and parse data from sensor stream
 import socket
 import fcntl
@@ -12,8 +14,8 @@ import numpy as np
 import matplotlib.animation as animation
 
 # sensor stream IP and port
-# HOST = "192.168.8.1"
-HOST = "127.0.0.1"
+HOST = "192.168.8.1"
+# HOST = "127.0.0.1"
 PORT = 8091 
 
 # set up
@@ -48,10 +50,13 @@ try:    # keep running
                   end='')
             
             ax.clear()
-            ax.quiver([0,0,0], [0,0,0], [0,0,0], 
-                      [data['accel'][0], data['gyro'][0], data['mag'][0]], 
-                      [data['accel'][1], data['gyro'][1], data['mag'][1]], 
-                      [data['accel'][2], data['gyro'][2], data['mag'][2]])
+            ax.set_xlim([-10, 10])
+            ax.set_ylim([-10, 10])
+            ax.set_zlim([-10, 10])
+            ax.quiver([0,0], [0,0], [0,0],
+                      [data['accel'][0], data['gyro'][0]], 
+                      [data['accel'][1], data['gyro'][1]], 
+                      [data['accel'][2], data['gyro'][2]])
             return ax,
 
         anim = animation.FuncAnimation(fig, animate, interval=5, blit=True)
